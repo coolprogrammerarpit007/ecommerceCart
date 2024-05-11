@@ -84,7 +84,6 @@ body {
   align-items: center;
   gap: 7rem;
   flex-basis: 90%;
-  /* border: 1px solid salmon; */
 }
 .right-bar {
   display: flex;
@@ -92,6 +91,18 @@ body {
   justify-content: space-between;
   align-items: center;
   gap: 2rem;
+  position: relative;
+}
+
+.cart-total {
+  font-size: 1.5rem;
+  background-color: hsl(26, 100%, 55%);
+  color: #fff;
+  position: absolute;
+  top: -1.3rem;
+  right: 10rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
 }
 
 .profile {

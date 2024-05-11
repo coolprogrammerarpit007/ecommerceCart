@@ -52,6 +52,7 @@ productSection.innerHTML = html;
 
 // state variable
 let count = 0;
+let totalProducts = 0;
 let checkoutBtn;
 // storing add product button
 const addBtn = document.querySelector(`.addBtn`);
@@ -96,6 +97,9 @@ addBtn.addEventListener(`click`, (e) => {
   // if added products greater 0
   if (count > 0) {
     // storing product name
+    // showing added cart products
+    totalProducts += count;
+    document.querySelector(`.cart-total`).textContent = totalProducts;
     const productName = document.getElementById(
       `title-${product[0].id}`
     ).textContent;
@@ -149,6 +153,7 @@ addBtn.addEventListener(`click`, (e) => {
       document.querySelector(`.row`).innerHTML = newCartItem;
     }
 
+    // ********************************
     // checking if cart contains checkout button
     if (!productCart.contains(checkoutBtn)) {
       checkoutBtn = document.createElement(`button`);
@@ -182,6 +187,10 @@ addBtn.addEventListener(`click`, (e) => {
       cart = [];
       productItem = ``;
       newCartItem = ``;
+      totalProducts = 0;
+
+      // showing cart products to default
+      document.querySelector(`.cart-total`).textContent = 0;
 
       // removing the checkout button
       checkoutBtn.remove();
