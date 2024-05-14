@@ -290,7 +290,7 @@ body {
   right: 0;
   z-index: 500;
   width: 35rem;
-  height: 25rem;
+  height: auto;
   background: #fff;
   position: absolute;
   box-shadow: 5px 5px 5px #000;
@@ -310,11 +310,18 @@ body {
 
 .product-cart .row {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: start;
-  align-items: center;
+  align-items: start;
   gap: 2rem;
   padding: 1rem;
+}
+
+.row-product {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .product-cart p:nth-child(1) {
@@ -322,7 +329,10 @@ body {
   letter-spacing: 0.5rem;
   font-size: 1.5rem;
 }
-.total-price {
+.total-price-1,
+.total-price-2,
+.total-price-3,
+.total-price-4 {
   color: hsl(219, 9%, 45%);
   word-spacing: 0.5rem;
   font-size: 1.2rem;
@@ -353,4 +363,9 @@ body {
   padding: 0.5rem;
   border: none;
   text-transform: capitalize;
+}
+
+/* ****************************************************** */
+.active {
+  border: 0.5rem solid orange;
 }
