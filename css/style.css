@@ -329,10 +329,7 @@ body {
   letter-spacing: 0.5rem;
   font-size: 1.5rem;
 }
-.total-price-1,
-.total-price-2,
-.total-price-3,
-.total-price-4 {
+.total-price {
   color: hsl(219, 9%, 45%);
   word-spacing: 0.5rem;
   font-size: 1.2rem;

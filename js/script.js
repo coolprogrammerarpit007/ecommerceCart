@@ -17,6 +17,7 @@ const cartBtn = document.querySelector(`.cart-img`);
 const productRow = document.querySelector(`.row`);
 
 // state variables
+let totalCartProducts = 0;
 
 // Adding new product option effect
 
@@ -79,7 +80,7 @@ choices.forEach((item, i) => {
           <div class="cart-buttons">
             <div class="item-count">
               <img src="./images/icon-minus.svg" alt="plus" id="minus-btn" />
-              <span id="total-qty">1</span>
+              <span id="total-qty">0</span>
               <img src="./images/icon-plus.svg" alt="minus" id="plus-btn" />
             </div>
             <button class="addBtn" data-product-id="${
@@ -90,15 +91,24 @@ choices.forEach((item, i) => {
     productSection.innerHTML = html;
 
     // Modifying the product quantity
-    let count = Number(document.querySelector(`#total-qty`).textContent);
-    console.log(`Initial Count: ${count}`);
+    let count = 0;
+
+    // storing the incremet product in the cart button
     const plusBtn = document.getElementById(`plus-btn`);
+
+    // storing the decrement product in the cart button.
     const minusBtn = document.getElementById(`minus-btn`);
+
+    // storing total quantity to store total products in the counter.
     const totalQty = document.getElementById(`total-qty`);
+
+    // Event listener to the plus button which increments the quantity
     plusBtn.addEventListener(`click`, function (e) {
       count++;
       totalQty.textContent = count;
     });
+
+    // Event listener to the decrement button which decrements the quantity.
     minusBtn.addEventListener(`click`, function (e) {
       if (count >= 1) count--;
       totalQty.textContent = count;
@@ -107,16 +117,25 @@ choices.forEach((item, i) => {
     // **************************************
 
     // Add to the cart functuaniity
+
+    // storing add cart button
     const addCartBtn = document.querySelector(`.addBtn`);
 
+    // Event listener to the add cart button.
     addCartBtn.addEventListener(`click`, function (e) {
-      console.log(`Product added to the cart`);
+      // Showing total products of the cart
+      totalCartProducts += count;
+      document.querySelector(`.cart-total`).textContent = totalCartProducts;
+      // storing productID/ unique to every product.
       const productId = addCartBtn.dataset.productId;
       console.log(productId);
 
-      let matchingItem;
-      let newCartItem = ``;
+      // State Variabe
+      let matchingItem; // store item if repeated in cart
+      let newCartItem = ``; // for DOM
+      // *******************************
       cart.forEach((item) => {
+        // Check if item already in the cart.
         if (item.productId === productId) {
           console.log(`Item already in the cart`);
           matchingItem = item;
@@ -125,47 +144,64 @@ choices.forEach((item, i) => {
 
       if (matchingItem) {
         matchingItem.qty = matchingItem.qty + count;
+        console.log(`New Quantity`, matchingItem);
         // updting dom and showing updated price
-        document.querySelector(`.total-price-${productId}`).innerHTML = `$${
-          matchingItem.price
-        } X ${matchingItem.qty}  <span> $${
-          matchingItem.price * matchingItem.qty
-        }</span>`;
       } else {
         cart.push({
           productId: productId,
           image: `./../images/image-product-${i + 1}.jpg`,
           price: product[i].discountPrice,
-          qty: count,
+          qty: count++,
           productName: `${product[i].title}`,
         });
+      }
 
-        // Adding product to the dom cart
-        cart.forEach((cartItem, i) => {
-          newCartItem += `
+      console.log(cart);
+      // Adding product to the DOM and show the updated cart to the page.
+      cart.forEach((cartItem, i) => {
+        newCartItem += `
     <div class="row-product">
     <img src="${cartItem.image}" alt="cart item"  />
     <div class="item-details">
       <p>${cartItem.productName}</p>
-      <p class="total-price-${productId}">$${cartItem.price} X ${
-            cartItem.qty
-          }  <span> $${cartItem.price * cartItem.qty}</span></p>
+      <p class="total-price">$${cartItem.price} X ${cartItem.qty}  <span> $${
+          cartItem.price * cartItem.qty
+        }</span></p>
     </div>
-    <img src="./../images/icon-delete.svg" id="delete-btn"/>
+    <img src="./../images/icon-delete.svg" class="delete-btn"/>
     </div>
     `;
+      });
+
+      document.querySelector(`.row`).innerHTML = newCartItem;
+
+      // Adding the delete product from the cart feature.
+
+      // storing the delete buttons
+      const deleteBtns = document.querySelectorAll(`.delete-btn`);
+
+      // Adding event listener to the delete buttons
+      deleteBtns.forEach((btn, i) => {
+        btn.addEventListener(`click`, function (e) {
+          // storing the parent element of delete button.
+          const parent = btn.parentElement;
+
+          // removing the parent element from the DOM.
+          parent.remove();
+
+          // removing item from the cart object.
+          totalCartProducts = totalCartProducts - cart[i].qty;
+          document.querySelector(`.cart-total`).textContent = totalCartProducts;
+          cart.splice(i, 1);
         });
-
-        document.querySelector(`.row`).innerHTML = newCartItem;
-      }
-
-      console.log(cart);
+      });
     });
   });
 });
 
 // ********************************
 
+// Adding event listener to the cart button.
 cartBtn.addEventListener(`click`, function (e) {
   productCart.classList.toggle(`hidden-cart`);
 });
