@@ -1,3 +1,3 @@
 `use strict`;
 
-let cart = [];
+export let cart = [];

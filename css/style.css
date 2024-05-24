@@ -265,13 +265,14 @@ body {
 }
 
 .choice {
-  width: 50%;
+  width: 100%;
   height: auto;
-  padding: 1rem;
+  padding: 0.5rem;
+  border-radius: 2rem;
 }
 
 .choice img {
-  border-radius: 2rem;
+  border-radius: 1rem;
   width: 10rem;
   height: auto;
   opacity: 0.5;
