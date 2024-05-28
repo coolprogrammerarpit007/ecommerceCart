@@ -14,7 +14,9 @@ const showQty = document.querySelector(`.item-qty`);
 const optionProducts = document.querySelectorAll(`.choice-img`);
 
 const productImg = document.querySelector(`.product-img`);
+const cartBtn = document.querySelector(`.cart-img`);
 const productTopPart = document.querySelector(`.product-top-part`);
+const productShoppingCart = document.querySelector(`.navbar-product-cart`);
 
 // When Page Loads at start
 // *************************************
@@ -154,4 +156,60 @@ addCartBtn.addEventListener(`click`, function (e) {
   }
 
   console.log(cart);
+});
+
+// ***********************************
+// ***********************************
+
+// Now adding feature to show items in the product-cart
+
+cartBtn.addEventListener(`click`, (e) => {
+  // Itterating over cart
+
+  // console.log(`cart got open`);
+  let cartItemHTML = ``;
+  cart.forEach((cartItem) => {
+    // **************************
+    // **************************
+
+    // finding the productId from the products
+
+    let mathcingItem;
+
+    products.forEach((productItem) => {
+      if (cartItem.productId === productItem.id) {
+        mathcingItem = productItem;
+      }
+    });
+    // console.log(mathcingItem);
+    cartItemHTML += `
+       <div class="product-row product-row-${cartItem.productId}">
+         <div class="product-row-img-container">
+           <img class="product-row-img" src="${mathcingItem[`image`]}">
+         </div>
+         <p class="row-product-name">
+           ${mathcingItem[`title`]}
+         </p>
+         <p class="row-product-qty">
+           Item Quantity:
+           ${cartItem.qty}
+         </p>
+         <p class="row-total-product-price">
+           Product-Price:
+           ${cartItem.qty * mathcingItem.discountPrice}
+         </p>
+         <div class="delete-btn">
+           <img class="delete-btn-icon" src="../images/icon-delete.svg">
+         </div>
+       </div>
+     `;
+  });
+
+  // Appending all these producs to the cart
+
+  productShoppingCart.innerHTML = cartItemHTML;
+
+  // Showing and hiding the product Cart
+
+  productShoppingCart.classList.toggle(`hidden-cart`);
 });
