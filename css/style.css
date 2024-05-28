@@ -44,326 +44,211 @@ body {
 
 /* Styling of the product cart */
 
-.main-container {
-  margin: auto;
-  width: 80%;
-  height: 100vh;
-  /* border: 1px solid sandybrown; */
+/* *********************************** */
+/* *********************************** */
+
+/* Styling the navigation Bar */
+
+.nav-section {
+  padding: 0.5rem 2rem;
 }
 
-/* ************************************ */
-
-/* Navigation Bar ********************** */
-/* ************************************** */
-
-.links {
-  list-style: none;
+.navbar-container {
+  padding: 0.5rem 6rem;
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left-nav-section {
+  display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   gap: 3rem;
 }
 
-.links .link {
-  font-size: 1.5rem;
-  color: hsl(219, 9%, 45%);
+.sneakers-logo {
+  /* border: 1px solid red; */
+  width: 90%;
+}
+.sneakers-logo img {
+  width: 100%;
+  height: auto;
 }
 
-.navbar {
-  padding: 4rem;
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  border-bottom: 1px solid hsl(220, 14%, 75%);
-}
-
-.left-bar {
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  align-items: center;
-  gap: 7rem;
-  flex-basis: 90%;
-}
-.right-bar {
+.links {
+  list-style-type: none;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   gap: 2rem;
-  position: relative;
 }
 
-.cart-total {
-  font-size: 1.5rem;
-  background-color: hsl(26, 100%, 55%);
-  color: #fff;
-  position: absolute;
-  top: -1.3rem;
-  right: 10rem;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
+.links .link {
+  text-transform: capitalize;
+  font-size: 1.6rem;
+  color: hsl(220, 14%, 75%);
 }
 
-.profile {
-  width: 30%;
-  height: auto;
-}
-
-.profile-img {
-  width: 100%;
-  height: auto;
-}
-
-/* ************************************ */
-
-/* Product Section */
-
-.product-section {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  margin-top: 5rem;
-  padding: 0.5rem 5rem;
-  gap: 4rem;
-  margin-bottom: 0;
-  /* border: 1px solid salmon; */
-}
-
-.product-item {
-  grid-column: 1/3;
-  width: 100%;
-  height: auto;
-}
-
-.product-item img {
-  width: 100%;
-  height: auto;
-  border-radius: 1rem;
-}
-
-.product-details {
-  grid-column: 3/5;
+.right-nav-section {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: start;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   gap: 2rem;
 }
 
-.product-details > p {
-  color: hsl(26, 100%, 55%);
-  font-size: 2rem;
+.profile-img {
+  width: 50%;
+  /* border: 1px solid red; */
+}
+
+.profile-img img {
+  width: 100%;
+  height: auto;
+}
+
+/* ************************************* */
+/* ************************************* */
+
+/* End of navigation section */
+
+/* ******************************** */
+/* ******************************** */
+
+/* Start of product section */
+
+.product-section {
+  padding: 0.5rem 2rem;
+}
+
+.product-container {
+  padding: 0.5rem 8rem;
+  display: flex;
+  /* border: 1px solid salmon; */
+}
+
+.product-img {
+  /* border: 1px solid saddlebrown; */
+  width: 50%;
+  padding: 2.5rem;
+  flex-basis: 50%;
+}
+
+.product-img img {
+  border-radius: 2rem;
+  width: 100%;
+  height: auto;
+}
+
+.product-details {
+  /* border: 1px solid goldenrod; */
+  flex-basis: 45%;
+
+  padding: 10rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 4rem;
+}
+
+.product-top-part {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.company {
+  font-size: 1.5rem;
   text-transform: uppercase;
-  letter-spacing: 0.2rem;
+  color: hsl(26, 100%, 55%);
 }
 
-.heading {
+.product-title {
+  font-size: 2rem;
+  text-transform: capitalize;
   width: 80%;
-}
-
-.heading > h1 {
-  word-wrap: break-word;
-  font-size: 3.5rem;
 }
 
 .product-description {
-  width: 80%;
+  width: 95%;
 }
 
 .product-description p {
-  word-wrap: break-word;
-  font-size: 1.3rem;
+  font-size: 1.6rem;
+  word-break: break-all;
+  line-height: 1.2;
   color: hsl(219, 9%, 45%);
-  word-spacing: 0.8rem;
-  line-height: 1.5;
 }
 
 .product-pricing {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 2rem;
   /* border: 1px solid red; */
-  gap: 3rem;
-  width: 30%;
-}
-
-.prices {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  margin-bottom: 0;
 }
 
 .discounted-price {
-  color: hsl(0, 0%, 0%);
-  font-size: 3rem;
-  font-weight: 600;
+  font-size: 2.5rem;
+  color: hsl(220, 13%, 13%);
+  font-weight: 700;
+}
+
+.total-discount {
+  font-size: 1.5rem;
+  color: hsl(26, 100%, 55%);
+  background-color: hsl(26, 100%, 55%, 0.4);
+  padding: 0.5rem;
+  border-radius: 0.3rem;
 }
 
 .actual-price {
-  color: hsl(219, 9%, 45%);
-  text-decoration: line-through;
-  font-size: 1.3rem;
-}
-
-.discount {
-  background-color: hsl(26, 100%, 55%);
-  border-radius: 0.6rem;
-  padding: 0.3rem;
-  margin-bottom: 3rem;
-}
-
-.discount span {
-  color: orange;
-  font-size: 1.3rem;
-}
-
-/* ************************************* */
-/* ************************************** */
-.cart-buttons {
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  gap: 3rem;
-  margin-top: 4rem;
-}
-
-.item-count {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 3rem;
-  background-color: hsl(220, 14%, 75%);
-  opacity: 0.6;
-  padding: 1rem 2rem;
-  border-radius: 1rem;
-}
-.item-count span {
-  font-size: 2rem;
-  font-weight: bold;
-  color: black;
-}
-
-.addBtn {
-  background-color: hsl(26, 100%, 55%);
-  border: none;
-  padding: 1rem 6rem;
-  color: hsl(0, 0%, 100%);
-  border-radius: 0.5rem;
-}
-
-/* ********************************* */
-/* ****** Product Thumbnais ****** */
-
-.product-choices {
   margin-top: 0;
-  width: 10%;
-  padding: 0.2rem 5rem;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 1fr;
-  /* border: 1px solid greenyellow; */
+  /* border: 1px solid green; */
+  color: hsl(220, 14%, 75%);
+  font-size: 1.4rem;
+  text-decoration: line-through;
 }
 
-.choice {
-  width: 100%;
-  height: auto;
-  padding: 0.5rem;
-  border-radius: 2rem;
-}
-
-.choice img {
-  border-radius: 1rem;
-  width: 10rem;
-  height: auto;
-  opacity: 0.5;
-}
-
-/* ************************************** */
-
-/* Stying of the cart */
-.navbar {
-  position: relative;
-}
-
-.product-cart {
-  border-radius: 1rem;
-  top: 10rem;
-  right: 0;
-  z-index: 500;
-  width: 35rem;
-  height: auto;
-  background: #fff;
-  position: absolute;
-  box-shadow: 5px 5px 5px #000;
-  padding: 2rem 2rem;
-}
-
-.product-cart h3 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #000;
-  border-bottom: 1px solid hsl(219, 9%, 45%);
-}
-
-.hidden-cart {
-  display: none;
-}
-
-.product-cart .row {
+.product-bottom-part {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: start;
-  align-items: start;
-  gap: 2rem;
-  padding: 1rem;
+  align-items: center;
+  gap: 4rem;
 }
 
-.row-product {
+.product-qty-manipulation {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  gap: 0.5rem;
-}
-
-.product-cart p:nth-child(1) {
-  color: hsl(219, 9%, 45%);
-  letter-spacing: 0.5rem;
-  font-size: 1.5rem;
-}
-.total-price {
-  color: hsl(219, 9%, 45%);
-  word-spacing: 0.5rem;
-  font-size: 1.2rem;
-}
-.product-cart img {
-  width: 25%;
-  height: auto;
+  gap: 2rem;
+  background-color: hsl(223, 64%, 98%);
+  padding: 0.7rem 2rem;
   border-radius: 0.5rem;
 }
 
-.product-cart span {
-  font-weight: bold;
+.product-qty-manipulation .item-qty {
+  color: hsl(220, 13%, 13%);
+  font-size: 1.6rem;
+  font-weight: 700;
 }
 
-.item-details {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: start;
-  gap: 1rem;
-}
-
-#checkout {
-  background-color: orange;
-  color: #fff;
-  width: 100%;
-  border-radius: 1rem;
-  padding: 0.5rem;
+#add-Cart-Btn {
+  background-color: hsl(26, 100%, 55%);
   border: none;
-  text-transform: capitalize;
-}
-
-/* ****************************************************** */
-.active {
-  border: 0.5rem solid orange;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  cursor: pointer;
 }

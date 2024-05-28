@@ -27,106 +27,106 @@
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <div class="main-container">
-      <!-- *********************** -->
-      <!-- *********************** -->
+    <!-- ************************** -->
+    <!-- Navigation bar -->
 
-      <!-- Navigation bar -->
-      <nav class="navbar">
-        <div class="left-bar">
-          <div class="logo">
-            <img src="./images/logo.svg" alt="Sneakers Logo" />
+    <nav class="nav-section">
+      <!-- navigation container -->
+      <div class="navbar-container">
+        <div class="left-nav-section">
+          <!-- Logo -->
+          <div class="sneakers-logo">
+            <img src="./images/logo.svg" alt="sneakers logo" class="logo-img" />
           </div>
+
+          <!-- Navigation Links -->
           <ul class="links">
-            <li class="link">Collection</li>
-            <li class="link">Men</li>
-            <li class="link">Women</li>
-            <li class="link">About</li>
-            <li class="link">Contact</li>
+            <li class="link">collections</li>
+            <li class="link">men</li>
+            <li class="link">women</li>
+            <li class="link">about</li>
+            <li class="link">contact</li>
           </ul>
         </div>
-        <div class="right-bar">
-          <img src="./images/icon-cart.svg" alt="Cart" class="cart-img" />
-          <span class="cart-total">0</span>
-          <div class="profile">
+
+        <div class="right-nav-section">
+          <div class="cart-img">
+            <img
+              src="./images/icon-cart.svg"
+              alt="cart image"
+              class="img-cart"
+            />
+          </div>
+          <div class="profile-img">
             <img
               src="./images/image-avatar.png"
-              alt="Img-Avtar"
-              class="profile-img"
+              alt="Profile Avtar"
+              class="image-profile"
             />
           </div>
         </div>
-        <div class="product-cart hidden-cart">
-          <h3>Cart</h3>
-          <div class="row"></div>
+      </div>
+    </nav>
+
+    <!-- ************************* -->
+    <!-- ************************* -->
+
+    <!-- Ptoduct-Section -->
+
+    <section class="product-section">
+      <div class="product-container">
+        <!-- Product Image -->
+        <div class="product-img">
+          <img
+            src="./images/image-product-1.jpg"
+            alt="Product-1 Image"
+            class="img-product"
+          />
         </div>
-      </nav>
 
-      <!-- ************************** -->
-      <!-- ************************** -->
-
-      <!-- End of the navigation bar -->
-
-      <!-- ************************* -->
-      <!-- ************************* -->
-
-      <!-- Product Section -->
-      <section class="product-section">
-        <div class="product-item">
-          <img src="./images/image-product-1.jpg" alt="product item" />
-        </div>
+        <!-- Product-Details -->
         <div class="product-details">
-          <p>sneaker company</p>
-          <div class="heading">
-            <h1>Fall Limited Edition Sneakers</h1>
-          </div>
-          <div class="product-description">
-            <p>
-              These low-profile sneakers are your perfect casual wear companion.
-              Featuring a durable rubber outer sole, they will withstand
-              everything the weather can offer.
-            </p>
-          </div>
-          <div class="product-pricing">
-            <div class="prices">
-              <span class="discounted-price">$125.00 </span>
-              <span class="actual-price">$250.00 </span>
+          <!-- Top part of product -->
+          <div class="product-top-part">
+            <div class="company">
+              <p class="product-company">sneaker company</p>
             </div>
-            <div class="discount">
-              <span>50%</span>
+            <div class="product-title">
+              <h2>fall limited edition sneakers</h2>
             </div>
-          </div>
-          <div class="cart-buttons">
-            <div class="item-count">
-              <img src="./images/icon-minus.svg" alt="minus" id="minus-btn" />
-              <span id="total-qty">0</span>
-              <img src="./images/icon-plus.svg" alt="" id="plus-btn" />
+            <div class="product-description">
+              <p>
+                These low-profile sneakers are your perfect casual wear
+                companion. Featuring a durable rubber outer sole, they will
+                withstand everything the weather can offer.
+              </p>
             </div>
-            <button class="addBtn">Add to cart</button>
+            <div class="product-pricing">
+              <p class="discounted-price">$125.00</p>
+              <p class="total-discount">50%</p>
+            </div>
+            <div class="actual-price">$250.00</div>
           </div>
-        </div>
-      </section>
 
-      <!-- ************************ -->
-      <!-- ************************ -->
+          <!-- Bottom Part Cart Button -->
 
-      <!-- Getting acess to the product choices -->
-      <div class="product-choices">
-        <div class="choice" id="choice1">
-          <img src="./images/image-product-1-thumbnail.jpg" alt="" />
-        </div>
-        <div class="choice" id="choice2">
-          <img src="./images/image-product-2-thumbnail.jpg" alt="" />
-        </div>
+          <div class="product-bottom-part">
+            <div class="product-qty-manipulation">
+              <img src="./images/icon-plus.svg" alt=" increment icon" />
 
-        <div class="choice" id="choice3">
-          <img src="./images/image-product-3-thumbnail.jpg" alt="" />
-        </div>
-        <div class="choice" id="choice4">
-          <img src="./images/image-product-4-thumbnail.jpg" alt="" />
+              <span class="item-qty">0</span>
+
+              <img src="./images/icon-minus.svg" alt="decrement icon" />
+            </div>
+
+            <button id="add-Cart-Btn">
+              <img src="./images/icon-cart.svg" alt="icon" />
+              Add To Cart
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   </body>
 
   <script type="module" src="./js/script.js"></script>
