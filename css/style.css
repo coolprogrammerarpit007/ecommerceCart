@@ -252,3 +252,39 @@ body {
   gap: 2rem;
   cursor: pointer;
 }
+
+/* *********************************** */
+/* End of Product-Section */
+/* *********************************** */
+
+/* ******************************** */
+/* ******************************** */
+
+/* Styling of the product-choice  */
+
+.product-option-section {
+  padding: 0.5rem 2rem;
+}
+
+.choice-img {
+  width: 10%;
+  border: 1px solid hsl(220, 13%, 13%);
+  background-color: hsl(223, 64%, 98%);
+  padding: 2rem;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+.choice-img img {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+}
+
+.product-option-container {
+  padding: 0.5rem 8rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  gap: 1rem;
+}
