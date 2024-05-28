@@ -1,5 +1,6 @@
 `use strict`;
 import { products } from "./products.js";
+import { cart } from "./cart.js";
 
 // state variable
 let count = 0;
@@ -116,4 +117,37 @@ decreaseQtyBtn.addEventListener(`click`, function (e) {
   // condition to check if count < 0 and re-assign value of count
   count <= 0 ? (count = 0) : count--;
   showQty.textContent = count;
+});
+
+// **********************************
+// **********************************
+
+// Adding add to cart button feature
+
+addCartBtn.addEventListener(`click`, function (e) {
+  // Getting the productId of the product
+  const div = document.querySelector(`.company`);
+  const productId = div.dataset.productId;
+
+  // Now checking if product is already in the cart
+
+  let mathcingItem;
+  cart.forEach((cartItem) => {
+    if (cartItem.productId === productId) {
+      mathcingItem = cartItem;
+    }
+  });
+
+  if (mathcingItem) {
+    // updating the product quantity
+    mathcingItem.qty += 1;
+  } else {
+    // Adding product to the cart
+    cart.push({
+      productId: productId,
+      qty: 1,
+    });
+  }
+
+  console.log(cart);
 });
