@@ -254,6 +254,12 @@ body {
   cursor: pointer;
 }
 
+.product-qty-manipulation img {
+  background-color: hsl(219, 9%, 45%);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
 /* *********************************** */
 /* End of Product-Section */
 /* *********************************** */

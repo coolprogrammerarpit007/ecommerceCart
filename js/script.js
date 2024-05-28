@@ -1,6 +1,8 @@
 `use strict`;
 import { products } from "./products.js";
 
+// state variable
+let count = 0;
 // Getting Acess to all the dynamic elements
 
 const addCartBtn = document.getElementById(`add-Cart-Btn`);
@@ -42,7 +44,7 @@ function generateProduct(index) {
   // ***************************
   // Generating HTML For the Product Details
   productHTML = `
-   <div class="company">
+   <div class="company" data-product-id="${products[index][`id`]}">
           <p class="product-company">sneaker company</p>
     </div>
 
@@ -99,4 +101,19 @@ optionProducts.forEach((optionChoice, index) => {
     userChoosenProduct(optionChoice);
     generateProduct(index);
   });
+});
+
+// ***********************************
+// ***********************************
+
+// Adding updating product qty feature to the cart
+increaseQtyBtn.addEventListener(`click`, function (e) {
+  count++;
+  showQty.textContent = count;
+});
+
+decreaseQtyBtn.addEventListener(`click`, function (e) {
+  // condition to check if count < 0 and re-assign value of count
+  count <= 0 ? (count = 0) : count--;
+  showQty.textContent = count;
 });
