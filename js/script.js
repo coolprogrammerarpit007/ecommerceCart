@@ -140,12 +140,16 @@ addCartBtn.addEventListener(`click`, function (e) {
 
   if (mathcingItem) {
     // updating the product quantity
-    mathcingItem.qty += 1;
+    if (count > 0) {
+      mathcingItem.qty += count;
+    } else {
+      mathcingItem.qty += 1;
+    }
   } else {
     // Adding product to the cart
     cart.push({
       productId: productId,
-      qty: 1,
+      qty: count > 0 ? count : 1,
     });
   }
 
