@@ -234,6 +234,7 @@ body {
   background-color: hsl(223, 64%, 98%);
   padding: 0.7rem 2rem;
   border-radius: 0.5rem;
+  cursor: pointer;
 }
 
 .product-qty-manipulation .item-qty {
@@ -287,4 +288,12 @@ body {
   justify-content: start;
   align-items: center;
   gap: 1rem;
+}
+
+/* ******************************** */
+/* ******************************** */
+
+.active {
+  border: 1px solid orange;
+  opacity: 0.5;
 }
