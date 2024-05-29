@@ -1,9 +1,10 @@
 `use strict`;
 import { products } from "./products.js";
-import { cart } from "./cart.js";
+// import { cart } from "./cart.js";
 
 // state variable
 let count = 0;
+let cart = [];
 // Getting Acess to all the dynamic elements
 
 const addCartBtn = document.getElementById(`add-Cart-Btn`);
@@ -34,7 +35,6 @@ function generateProduct(index) {
   let productHTML = ``;
   // creating product image and inserting it into the dom
   productImg.innerHTML = ``;
-  // productTopPart.innerHTML = ``;
 
   const productImage = document.createElement(`img`);
   productImage.src = `${products[index][`image`]}`;
@@ -181,7 +181,9 @@ cartBtn.addEventListener(`click`, (e) => {
         mathcingItem = productItem;
       }
     });
-    // console.log(mathcingItem);
+
+    // ***************************
+    // ***************************
     cartItemHTML += `
        <div class="product-row product-row-${cartItem.productId}">
          <div class="product-row-img-container">
@@ -198,7 +200,7 @@ cartBtn.addEventListener(`click`, (e) => {
            Product-Price:
            ${cartItem.qty * mathcingItem.discountPrice}
          </p>
-         <div class="delete-btn">
+         <div class="delete-btn" data-cart-id="${cartItem.productId} ">
            <img class="delete-btn-icon" src="../images/icon-delete.svg">
          </div>
        </div>
@@ -212,4 +214,42 @@ cartBtn.addEventListener(`click`, (e) => {
   // Showing and hiding the product Cart
 
   productShoppingCart.classList.toggle(`hidden-cart`);
+
+  // *********************************
+  // *********************************
+
+  // Feature to remove product from shopping cart
+
+  const deleteBtns = document.querySelectorAll(`.delete-btn`);
+
+  deleteBtns.forEach((deleteBtn) => {
+    deleteBtn.addEventListener(`click`, function (e) {
+      const productId = deleteBtn.dataset.cartId;
+      // console.log(typeof productId);
+      removeProduct(productId);
+    });
+  });
 });
+
+// function to remove product from the cart
+
+function removeProduct(productId) {
+  const newProductId = productId.trim().toString();
+  cart.forEach((cartItem, i) => {
+    let newCartProductId = cartItem.productId.trim().toString();
+
+    if (newCartProductId === newProductId) {
+      // finding index of the cartItem
+
+      let itemIndex = cart.indexOf(cartItem);
+
+      // removing item from the cart
+      cart.splice(itemIndex, 1);
+
+      // now updating cart dom
+      document.querySelector(`.product-row-${cartItem.productId}`).remove();
+    }
+  });
+
+  console.log(cart);
+}
