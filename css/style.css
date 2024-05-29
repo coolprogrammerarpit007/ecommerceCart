@@ -163,6 +163,26 @@ body {
   gap: 2rem;
 }
 
+.cart-img {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+}
+
+#total-cart-products {
+  font-size: 2rem;
+  color: hsl(223, 64%, 98%);
+  position: absolute;
+  bottom: 1rem;
+  left: 2rem;
+  background-color: hsl(26, 100%, 55%);
+  padding: 0.3rem;
+  border-radius: 0.5rem;
+}
+
 .profile-img {
   width: 50%;
   /* border: 1px solid red; */

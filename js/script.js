@@ -156,6 +156,9 @@ addCartBtn.addEventListener(`click`, function (e) {
   }
 
   console.log(cart);
+
+  // function to update total products at cart
+  totalCartProducts();
 });
 
 // ***********************************
@@ -211,6 +214,9 @@ cartBtn.addEventListener(`click`, (e) => {
 
   productShoppingCart.innerHTML = cartItemHTML;
 
+  // *******************************
+  // *******************************
+
   // Showing and hiding the product Cart
 
   productShoppingCart.classList.toggle(`hidden-cart`);
@@ -251,5 +257,18 @@ function removeProduct(productId) {
     }
   });
 
+  totalCartProducts();
   console.log(cart);
 }
+
+// function to get the total products at the cart
+
+function totalCartProducts() {
+  let totalCartItems = cart.length;
+
+  // updating the total products at the cart dom
+
+  document.getElementById(`total-cart-products`).textContent = totalCartItems;
+}
+
+totalCartProducts();
